@@ -29,6 +29,12 @@ namespace ProfanityFilter
         protected List<string> _profanities;
 
         /// <summary>
+        /// Exposes the internal profanity list as a strict read-only wrapper.
+        /// External callers cannot Clear, Add, Remove, or edit the indexed strings.
+        /// </summary>
+        public IReadOnlyList<string> Profanities => _profanities.AsReadOnly();
+
+        /// <summary>
         /// Constructor that initializes the standard profanity list.
         /// </summary>
         public ProfanityBase()
